@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Player {
 
-    private int MAX_HEALTH = 100;
-    private int MIN_HEALTH = 0;
+    private final int MAX_HEALTH = 100;
+    private final int MIN_HEALTH = 0;
 
     private int health = MAX_HEALTH;
     private List<String> items = new ArrayList<>();
