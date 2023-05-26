@@ -37,7 +37,7 @@ public class RedRoom {
     }
 
     private void onOpenDoor(Player player) {
-        if(player.hasItem(GameConstants.RED_KEY)){
+        if(player.hasItem(GameConstants.PURPLE_KEY)){
             System.out.println("The door opens, and you enter the purple room");
             purpleRoom.onEnterRoom(player);
         } else {

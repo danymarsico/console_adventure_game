@@ -2,7 +2,8 @@ package com.techelevator.constants;
 
 public class GameConstants {
 
-    //Keys were renamed such that the color of the key indicates the room that they will open
-    public static final String RED_KEY = "REDKEY";
+    public static final String PURPLE_KEY = "PURPLEKEY";
+
+    public static final String YELLOW_KEY = "YELLOWKEY";
 
 }
