@@ -19,7 +19,7 @@ public class PurpleRoom {
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
             if(selectedOption.equals(OPTION_CAKE)){
-                onEatCake(player);
+                onEatPizza(player);
             }else if(selectedOption.equals(OPTION_LEAVE)){
                 System.out.println("You exit the room");
                 break;
@@ -30,8 +30,15 @@ public class PurpleRoom {
 
     }
 
-    private void onEatCake(Player player) {
-        System.out.println("Congratulations! You eat cake and restore your health!");
+    //Here it the original code for "onEatCake":
+    // private void onEatCake(Player player) {
+    //    System.out.println("Congratulations! You eat cake and restore your health!");
+    //    player.setHealth( player.getHealth() + 20);
+    //}
+
+    //Here is the code redone so that it's called "pizza" instead:
+    private void onEatPizza(Player player)   {
+        System.out.println("Yum! Delicious pizza! You eat a slice and it restores your health.");
         player.setHealth( player.getHealth() + 20);
     }
 }
