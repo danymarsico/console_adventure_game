@@ -20,8 +20,10 @@ public class PurpleRoom {
             System.out.println(INTRO);
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
-            if (selectedOption.equals(OPTION_CAKE)) {
+            if (selectedOption.equals(OPTION_CAKE) && !player.hasItem(GameConstants.YELLOW_KEY)) {
                 System.out.println("You can't cut the cake until the guest of honor is here! Perhaps they need rescuing?");
+            } else if (selectedOption.equals(OPTION_CAKE) && player.hasItem(GameConstants.YELLOW_KEY)) {
+                onEatCake(player);
             } else if (selectedOption.equals(OPTION_PIZZA)) {
                 onEatPizza(player);
             } else if (selectedOption.equals(OPTION_LEAVE)) {
@@ -34,11 +36,23 @@ public class PurpleRoom {
 
     }
 
-    //Here it the original code for "onEatCake":
-    // private void onEatCake(Player player) {
-    //    System.out.println("Congratulations! You eat cake and restore your health!");
-    //    player.setHealth( player.getHealth() + 20);
-    //}
+    private void onEatCake(Player player) {
+        System.out.println("Congratulations, you can now eat the cake that fully restores your health and can now PARTY!");
+        System.out.println("                           !     !     !\n" +
+                "(          (    *         |V|   |V|   |V|        )   *   )       (\n" +
+                " )   *      )             | |   | |   | |        (       (   *    )\n" +
+                "(          (           (*******************)    *       *    )    *\n" +
+                "(     (    (           (    *         *    )               )    (\n" +
+                " )   * )    )          (   \\|/       \\|/   )         *    (      )\n" +
+                "(     (     *          (<<<<<<<<<*>>>>>>>>>)               )    (\n" +
+                " )     )        ((*******************************))       (  *   )\n" +
+                "(     (   *     ((         HAPPY BIRTHDAY!!!!    ))      * )    (\n" +
+                " ) *   )        ((   *    *   *    *    *    *   ))   *   (      )\n" +
+                "(     (         ((  \\|/  \\|/ \\|/  \\|/  \\|/  \\|/  ))        )    (\n" +
+                "*)     )        ((^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^))       (      )\n" +
+                "(     (   (**********************************************) )  * (");
+        player.setHealth(player.getHealth() + (100- player.getHealth()));
+    }
 
 
     //Here is the code where onEatCake is redone so that it's called "pizza" instead:
