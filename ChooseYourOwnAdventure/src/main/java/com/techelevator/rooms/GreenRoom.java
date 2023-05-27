@@ -1,7 +1,9 @@
 package com.techelevator.rooms;
 
+import com.techelevator.constants.GameConstants;
 import com.techelevator.menu.MenuDisplay;
 import com.techelevator.Player;
+import com.techelevator.rooms.Robot;
 
 public class GreenRoom {
 
@@ -11,9 +13,9 @@ public class GreenRoom {
     private static final String OPTION_LEAVE = "Leave room";
     private static final String[] OPTIONS = {OPTION_FIGHT, OPTION_LEAVE};
 
-    public void onEnterRoom(Player player) {
+    public void onEnterRoom(Player player,Robot robot) {
 
-        while(true) {
+        while (true) {
 
             // Robot Baddie!
             System.out.println("           ____________             ");
@@ -42,10 +44,10 @@ public class GreenRoom {
             System.out.println(INTRO);
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
-            if(selectedOption.equals(OPTION_FIGHT)){
+            if (selectedOption.equals(OPTION_FIGHT)) {
 
-                onFightRobot(player);
-            }else if(selectedOption.equals(OPTION_LEAVE)){
+                onFightRobot(player,robot);
+            } else if (selectedOption.equals(OPTION_LEAVE)) {
                 System.out.println("You exit the room");
                 break;
             }
@@ -55,28 +57,46 @@ public class GreenRoom {
 
     }
 
-    public void onFightRobot(Player player) {
 
-        boolean robotWins = ((int)(Math.random() * 10)) <= 5;
+    public void onFightRobot(Player player,Robot robot) {
 
-        if(robotWins) {
-            int healthDeduction = (int) (Math.random() * 20);
-            player.setHealth(player.getHealth() - healthDeduction);
-            System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
-        } else {
-            int healthDeduction = (int) (Math.random() * 30);
-            robot.s
-            System.out.println("You damaged the robot!");
+        boolean robotWins = ((int) (Math.random() * 10)) <= 5;
+
+            if (robotWins) {
+                int healthDeduction = (int) (Math.random() * 20);
+                player.setHealth(player.getHealth() - healthDeduction);
+                System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
+            } else {
+                if(robot.getHealth() == 0){
+                    System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
+                }
+                int healthDeduction = (int) (Math.random() * 30);
+                robot.setHealth(robot.getHealth() - healthDeduction);
+                System.out.println("You damaged the robot! Robot's health is: " + robot.getHealth());
+            }
+
+    }
+
+    private void onRobotKilled(Player player, Robot robot) {
+        if(robot.getHealth()== 0) {
+            System.out.println("Congratulations! You found a yellow key!");
+            player.addItem(GameConstants.YELLOW_KEY);
         }
     }
+
+
+
+
+
+
 }
 
 
 // Some loose code for what happens if the robot loses:
-// set onFightRobot to public voicd
+// set onFightRobot to public void
 // if robot loses
 // Display robot art with x's for eyes
-// Display "The robot has been defeated! The guest of honor has been freed!" or something similiar
+// Display "The robot has been defeated! The guest of honor has been freed!" or something similar
 // Add birthday candles to player inventory
 
 // We will also need to set up another while loop for the Purple Room - one where if you go into the purple room

@@ -1,9 +1,7 @@
 package com.techelevator;
 
 import com.techelevator.menu.MenuDisplay;
-import com.techelevator.rooms.BlueRoom;
-import com.techelevator.rooms.GreenRoom;
-import com.techelevator.rooms.RedRoom;
+import com.techelevator.rooms.*;
 
 public class Game {
 
@@ -12,12 +10,14 @@ public class Game {
     private static final String OPTION_RED = "Go to red room";
     private static final String OPTION_BLUE = "Go to blue room";
     private static final String OPTION_GREEN = "Go to green room";
+    private static final String OPTION_YELLOW = "Go to yellow room";
     private static final String OPTION_EXIT = "Exit";
-    private static final String[] OPTIONS = {OPTION_RED, OPTION_BLUE, OPTION_GREEN, OPTION_EXIT};
+    private static final String[] OPTIONS = {OPTION_RED, OPTION_BLUE, OPTION_GREEN, OPTION_YELLOW, OPTION_EXIT};
 
     private BlueRoom blueRoom = new BlueRoom();
     private RedRoom redRoom = new RedRoom();
     private GreenRoom greenRoom = new GreenRoom();
+    private YellowRoom yellowRoom = new YellowRoom();
 
     public static void main(String[] args) {
 
@@ -30,18 +30,19 @@ public class Game {
     public void beginGame() {
 
         Player player = new Player();
+        Robot robot = new Robot();
 
-        while(true) {
+        while (true) {
 
             System.out.println(INTRO);
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
-            if(selectedOption.equals(OPTION_RED)){
+            if (selectedOption.equals(OPTION_RED)) {
                 redRoom.onEnterRoom(player);
-            }else if(selectedOption.equals(OPTION_BLUE)){
+            } else if (selectedOption.equals(OPTION_BLUE)) {
                 blueRoom.onEnterRoom(player);
-            }else if(selectedOption.equals(OPTION_GREEN)){
-                greenRoom.onEnterRoom(player);
+            } else if (selectedOption.equals(OPTION_GREEN)) {
+                greenRoom.onEnterRoom(player, robot);
             } else {
                 System.out.println("Goodbye!");
                 break;

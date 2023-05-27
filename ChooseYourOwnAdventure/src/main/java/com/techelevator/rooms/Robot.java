@@ -7,6 +7,8 @@ public class Robot {
     private final int MAX_HEALTH = 100;
     private final int MIN_HEALTH = 0;
 
+    private boolean isRobotDead = false;
+
     private int health = MAX_HEALTH;
 
     public int getHealth() {
@@ -20,6 +22,12 @@ public class Robot {
             this.health = MIN_HEALTH;
         } else {
             this.health = health;
+        }
+    }
+
+    public void killedRobot(){
+        if(health == MIN_HEALTH) {
+            isRobotDead = true;
         }
     }
 
