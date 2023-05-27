@@ -15,10 +15,35 @@ public class GreenRoom {
 
         while(true) {
 
+            // Robot Baddie!
+            System.out.println("           ____________             ");
+            System.out.println("          |            |            ");
+            System.out.println("         D| ( O ) ( O )|D           ");
+            System.out.println("          |      >     |            ");
+            System.out.println("          | ########## |            ");
+            System.out.println("   ________|__________|_________    ");
+            System.out.println("   |                           |    ");
+            System.out.println("   |     |               |     |    ");
+            System.out.println("   |     | ~* ChatBot *~ |     |    ");
+            System.out.println("   |     |               |     |    ");
+            System.out.println("   |     |               |     |    ");
+            System.out.println("   |     |               |     |    ");
+            System.out.println("   |     |               |     |    ");
+            System.out.println("  ) )   ) )             ) )    ) )  ");
+            System.out.println("           _______________          ");
+            System.out.println("         |     |     |     |        ");
+            System.out.println("         |     |     |     |        ");
+            System.out.println("         |     |     |     |        ");
+            System.out.println("         |     |     |     |        ");
+            System.out.println("         |     |     |     |        ");
+            System.out.println("         |     |____ |     |____    ");
+            System.out.println("        {___________||___________}  ");
+
             System.out.println(INTRO);
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
             if(selectedOption.equals(OPTION_FIGHT)){
+
                 onFightRobot(player);
             }else if(selectedOption.equals(OPTION_LEAVE)){
                 System.out.println("You exit the room");
@@ -43,3 +68,19 @@ public class GreenRoom {
         }
     }
 }
+
+
+//Some loose code for what happens if the robot loses:
+// set onFightRobot to public voicd
+// if robot loses
+// Display robot art with x's for eyes
+// Display "The robot has been defeated! The guest of honor has been freed!" or something similiar
+// Add birthday candles to player inventory
+
+// We will also need to set up another while loop for the Purple Room - one where if you go into the purple room
+// and isRobotDead is false, it runs as it was originally written
+// but once isRobotDead is true, the intro for the purple room changes
+// and the option for eat cake says "*Now* eat the birthday cake."
+// I'm thinking we could accomplish this with an if statement at the very beginning of the class (if(robotWins = false) {
+// ...it runs as it was originally written
+// if true, the we use if else and basically paste in a copy of the existing code, modified.
