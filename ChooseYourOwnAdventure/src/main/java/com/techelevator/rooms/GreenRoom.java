@@ -16,30 +16,56 @@ public class GreenRoom {
     public void onEnterRoom(Player player, Robot robot) {
 
         while (true) {
+            if (!robot.killedRobot()) {
 
-            // Robot Baddie!
-            System.out.println("           ____________             ");
-            System.out.println("          |            |            ");
-            System.out.println("         D| ( O ) ( O )|D           ");
-            System.out.println("          |      >     |            ");
-            System.out.println("          | ########## |            ");
-            System.out.println("   ________|__________|_________    ");
-            System.out.println("   |                           |    ");
-            System.out.println("   |     |               |     |    ");
-            System.out.println("   |     | ~* ChatBot *~ |     |    ");
-            System.out.println("   |     |               |     |    ");
-            System.out.println("   |     |               |     |    ");
-            System.out.println("   |     |               |     |    ");
-            System.out.println("   |     |               |     |    ");
-            System.out.println("  ) )   ) )             ) )    ) )  ");
-            System.out.println("           _______________          ");
-            System.out.println("         |     |     |     |        ");
-            System.out.println("         |     |     |     |        ");
-            System.out.println("         |     |     |     |        ");
-            System.out.println("         |     |     |     |        ");
-            System.out.println("         |     |     |     |        ");
-            System.out.println("         |     |____ |     |____    ");
-            System.out.println("        {___________||___________}  ");
+                // Robot Baddie!
+                System.out.println("           ____________             ");
+                System.out.println("          |            |            ");
+                System.out.println("         D| ( O ) ( O )|D           ");
+                System.out.println("          |      >     |            ");
+                System.out.println("          | ########## |            ");
+                System.out.println("   ________|__________|_________    ");
+                System.out.println("   |                           |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     | ~* ChatBot *~ |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("  ) )   ) )             ) )    ) )  ");
+                System.out.println("           _______________          ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |____ |     |____    ");
+                System.out.println("        {___________||___________}  ");
+            } else if (robot.killedRobot()) {
+                System.out.println("           ____________             ");
+                System.out.println("          |            |            ");
+                System.out.println("         D| ( X ) ( X )|D           ");
+                System.out.println("          |      >     |            ");
+                System.out.println("          | ########## |            ");
+                System.out.println("   ________|__________|_________    ");
+                System.out.println("   |                           |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     | ~* ChatBot *~ |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("   |     |               |     |    ");
+                System.out.println("  ) )   ) )             ) )    ) )  ");
+                System.out.println("           _______________          ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |     |     |        ");
+                System.out.println("         |     |____ |     |____    ");
+                System.out.println("        {___________||___________}  ");
+
+            }
 
             System.out.println(INTRO);
 
@@ -69,9 +95,10 @@ public class GreenRoom {
         } else {
             if (robot.killedRobot()) {
                 System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
-                robot.onRobotKilled(robot,player);
+                System.out.println("");
+                robot.onRobotKilled(robot, player);
             } else {
-                int healthDeduction = (int) (Math.random() * 30);
+                int healthDeduction = (int) (Math.random() * 50);
                 robot.setHealth(robot.getHealth() - healthDeduction);
                 System.out.println("You damaged the robot! Robot's health is: " + robot.getHealth());
             }
