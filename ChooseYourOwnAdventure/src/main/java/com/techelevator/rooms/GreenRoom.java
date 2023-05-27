@@ -8,6 +8,7 @@ import com.techelevator.rooms.Robot;
 public class GreenRoom {
 
     private static final String INTRO = "Welcome to the green room! There is a robot powered by ChatGPT and it wants to fight you. What do you do?";
+    private static final String OUTRO = "You've already defeated the robot and obtained a new key.";
 
     private static final String OPTION_FIGHT = "Fight the robot";
     private static final String OPTION_LEAVE = "Leave room";
@@ -41,6 +42,17 @@ public class GreenRoom {
                 System.out.println("         |     |     |     |        ");
                 System.out.println("         |     |____ |     |____    ");
                 System.out.println("        {___________||___________}  ");
+
+                System.out.println(INTRO);
+
+                String selectedOption = MenuDisplay.prompt(OPTIONS);
+                if (selectedOption.equals(OPTION_FIGHT)) {
+
+                    onFightRobot(player, robot);
+                } else if (selectedOption.equals(OPTION_LEAVE)) {
+                    System.out.println("You exit the room");
+                    break;
+                }
             } else if (robot.killedRobot()) {
                 System.out.println("           ____________             ");
                 System.out.println("          |            |            ");
@@ -65,18 +77,32 @@ public class GreenRoom {
                 System.out.println("         |     |____ |     |____    ");
                 System.out.println("        {___________||___________}  ");
 
+
+                System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
+                System.out.println("");
+                robot.onRobotKilled(robot, player);
+
+
+                String selectedOption = MenuDisplay.prompt(OPTIONS);
+                if (selectedOption.equals(OPTION_FIGHT)) {
+                    System.out.println(OUTRO);
+
+                }else if (selectedOption.equals(OPTION_LEAVE)) {
+                    System.out.println("You exit the room");
+                    break;
+                }
+
+
             }
 
-            System.out.println(INTRO);
-
-            String selectedOption = MenuDisplay.prompt(OPTIONS);
+            /*String selectedOption = MenuDisplay.prompt(OPTIONS);
             if (selectedOption.equals(OPTION_FIGHT)) {
 
                 onFightRobot(player, robot);
             } else if (selectedOption.equals(OPTION_LEAVE)) {
                 System.out.println("You exit the room");
                 break;
-            }
+            } */
 
 
         }
@@ -93,15 +119,15 @@ public class GreenRoom {
             player.setHealth(player.getHealth() - healthDeduction);
             System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
         } else {
-            if (robot.killedRobot()) {
+            /*if (robot.killedRobot()) {
                 System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
                 System.out.println("");
                 robot.onRobotKilled(robot, player);
-            } else {
+            } else {*/
                 int healthDeduction = (int) (Math.random() * 50);
                 robot.setHealth(robot.getHealth() - healthDeduction);
                 System.out.println("You damaged the robot! Robot's health is: " + robot.getHealth());
-            }
+            //}
 
         }
 
