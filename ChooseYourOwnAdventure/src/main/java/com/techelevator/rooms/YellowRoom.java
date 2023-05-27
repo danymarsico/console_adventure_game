@@ -17,7 +17,8 @@ public class YellowRoom {
                 YellowRoom.onOpenDoor(player);
                 String selectedOption = MenuDisplay.prompt(OPTIONS);
                 if (selectedOption.equals(OPTION_SAY_HI)) {
-                    System.out.println("Thank you very much for setting me free! I am so happy to able to celebrate my Birthday!");
+                    System.out.println("Thank you very much for setting me free! I am so happy to be able to celebrate my Birthday with all my friends! ^_^");
+                    MenuDisplay.prompt(OPTIONS);
                 } else if (selectedOption.equals(OPTION_LEAVE)) {
                     System.out.println("You exit the room");
                     break;
@@ -38,7 +39,7 @@ public class YellowRoom {
             System.out.println(INTRO_YELLOW);
             System.out.println("");
             System.out.println("");
-            System.out.println("Hurraaay! You've saved the guest of honor: the Birthday person! You can go back to celebrate in the Blue room ^_^");
+            System.out.println("Hurraaay! You've saved the guest of honor: the Birthday person! You can go back to celebrate in the Blue room");
         }
     }
 }
