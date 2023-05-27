@@ -114,11 +114,12 @@ public class GreenRoom {
 
         boolean robotWins = ((int) (Math.random() * 10)) <= 5;
 
-        if (robotWins) {
-            int healthDeduction = (int) (Math.random() * 20);
-            player.setHealth(player.getHealth() - healthDeduction);
-            System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
-        } else {
+        if (player.getHealth()>0) {
+            if (robotWins) {
+                int healthDeduction = (int) (Math.random() * 20);
+                player.setHealth(player.getHealth() - healthDeduction);
+                System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
+            } else {
             /*if (robot.killedRobot()) {
                 System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
                 System.out.println("");
@@ -127,8 +128,11 @@ public class GreenRoom {
                 int healthDeduction = (int) (Math.random() * 50);
                 robot.setHealth(robot.getHealth() - healthDeduction);
                 System.out.println("You damaged the robot! Robot's health is: " + robot.getHealth());
-            //}
+                //}
 
+            }
+        } else {
+            System.out.println("GAME OVER...The ChatBot has defeated you! Try Again!");
         }
 
     }
