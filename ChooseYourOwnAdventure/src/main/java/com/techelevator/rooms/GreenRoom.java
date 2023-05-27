@@ -71,9 +71,8 @@ public class GreenRoom {
 
 
 //Some loose code for what happens if the robot loses:
-// Declare a variable for isRobotDead, set to false
+// set onFightRobot to public voicd
 // if robot loses
-// Set isRobotDead to true
 // Display robot art with x's for eyes
 // Display "The robot has been defeated! The guest of honor has been freed!" or something similiar
 // Add birthday candles to player inventory
@@ -82,6 +81,6 @@ public class GreenRoom {
 // and isRobotDead is false, it runs as it was originally written
 // but once isRobotDead is true, the intro for the purple room changes
 // and the option for eat cake says "*Now* eat the birthday cake."
-// I'm thinking we could accomplish this with an if statement (isRobotDead) at the very beginning of the class
-// if false, it runs as it was originally written
+// I'm thinking we could accomplish this with an if statement at the very beginning of the class (if(robotWins = false) {
+// ...it runs as it was originally written
 // if true, the we use if else and basically paste in a copy of the existing code, modified.
