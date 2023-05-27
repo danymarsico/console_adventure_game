@@ -64,6 +64,7 @@ public class GreenRoom {
             player.setHealth(player.getHealth() - healthDeduction);
             System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
         } else {
+            int healthDeduction = (int) (Math.random() * 30);
             System.out.println("You damaged the robot!");
         }
     }

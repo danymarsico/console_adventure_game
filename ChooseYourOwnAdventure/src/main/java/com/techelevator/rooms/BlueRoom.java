@@ -32,7 +32,7 @@ public class BlueRoom {
     }
 
     private void onOpenBox(Player player) {
-        System.out.println("Congratulations! You found a red key!");
+        System.out.println("Congratulations! You found a purple key!");
         player.addItem(GameConstants.PURPLE_KEY);
     }
 
