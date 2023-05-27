@@ -55,7 +55,7 @@ public class GreenRoom {
 
     }
 
-    private void onFightRobot(Player player) {
+    public void onFightRobot(Player player) {
 
         boolean robotWins = ((int)(Math.random() * 10)) <= 5;
 
@@ -70,7 +70,7 @@ public class GreenRoom {
 }
 
 
-//Some loose code for what happens if the robot loses:
+// Some loose code for what happens if the robot loses:
 // set onFightRobot to public voicd
 // if robot loses
 // Display robot art with x's for eyes
