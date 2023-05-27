@@ -1,5 +1,6 @@
 package com.techelevator.rooms;
 
+import com.techelevator.constants.GameConstants;
 import com.techelevator.menu.MenuDisplay;
 import com.techelevator.Player;
 
@@ -49,7 +50,10 @@ public class PurpleRoom {
 
     //Below is the revised onEatCake code, redone so it doesn't affect health, just prints a congrats message
     private void onEatBirthdayCake(Player player) {
-        System.out.println("Sweet victory! You defeated the robot and rescued the guest of honor! Well done, hero.");
+        if (GreenRoom.(onFightRobot)){
+            System.out.println("Sweet victory! You defeated the robot! Well done, hero. Now you have the Yellow Key.");
+            player.addItem(GameConstants.YELLOW_KEY);
+        }
     }
 
 
