@@ -13,7 +13,7 @@ public class GreenRoom {
     private static final String OPTION_LEAVE = "Leave room";
     private static final String[] OPTIONS = {OPTION_FIGHT, OPTION_LEAVE};
 
-    public void onEnterRoom(Player player,Robot robot) {
+    public void onEnterRoom(Player player, Robot robot) {
 
         while (true) {
 
@@ -46,7 +46,7 @@ public class GreenRoom {
             String selectedOption = MenuDisplay.prompt(OPTIONS);
             if (selectedOption.equals(OPTION_FIGHT)) {
 
-                onFightRobot(player,robot);
+                onFightRobot(player, robot);
             } else if (selectedOption.equals(OPTION_LEAVE)) {
                 System.out.println("You exit the room");
                 break;
@@ -58,35 +58,27 @@ public class GreenRoom {
     }
 
 
-    public void onFightRobot(Player player,Robot robot) {
+    public void onFightRobot(Player player, Robot robot) {
 
         boolean robotWins = ((int) (Math.random() * 10)) <= 5;
 
-            if (robotWins) {
-                int healthDeduction = (int) (Math.random() * 20);
-                player.setHealth(player.getHealth() - healthDeduction);
-                System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
+        if (robotWins) {
+            int healthDeduction = (int) (Math.random() * 20);
+            player.setHealth(player.getHealth() - healthDeduction);
+            System.out.println("Oh no! The robot is too fast. Your health is down to " + player.getHealth());
+        } else {
+            if (robot.killedRobot()) {
+                System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
+                robot.onRobotKilled(robot,player);
             } else {
-                if(robot.getHealth() == 0){
-                    System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
-                }
                 int healthDeduction = (int) (Math.random() * 30);
                 robot.setHealth(robot.getHealth() - healthDeduction);
                 System.out.println("You damaged the robot! Robot's health is: " + robot.getHealth());
             }
 
-    }
-
-    private void onRobotKilled(Player player, Robot robot) {
-        if(robot.getHealth()== 0) {
-            System.out.println("Congratulations! You found a yellow key!");
-            player.addItem(GameConstants.YELLOW_KEY);
         }
+
     }
-
-
-
-
 
 
 }

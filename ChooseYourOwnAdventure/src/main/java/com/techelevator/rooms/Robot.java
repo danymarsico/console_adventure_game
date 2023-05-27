@@ -1,13 +1,14 @@
 package com.techelevator.rooms;
 
+import com.techelevator.Player;
+import com.techelevator.constants.GameConstants;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Robot {
     private final int MAX_HEALTH = 100;
     private final int MIN_HEALTH = 0;
-
-    private boolean isRobotDead = false;
 
     private int health = MAX_HEALTH;
 
@@ -25,9 +26,16 @@ public class Robot {
         }
     }
 
-    public void killedRobot(){
+    public boolean killedRobot(){
         if(health == MIN_HEALTH) {
-            isRobotDead = true;
+            return true;
+        }
+        return false;
+    }
+    public void onRobotKilled(Robot robot, Player player) {
+        if (robot.killedRobot()) {
+            System.out.println("Congratulations! You found a yellow key!");
+            player.addItem(GameConstants.YELLOW_KEY);
         }
     }
 

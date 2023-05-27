@@ -15,16 +15,16 @@ public class PurpleRoom {
 
     public void onEnterRoom(Player player) {
 
-        while(true) {
+        while (true) {
 
             System.out.println(INTRO);
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
-            if(selectedOption.equals(OPTION_CAKE)){
+            if (selectedOption.equals(OPTION_CAKE)) {
                 System.out.println("You can't cut the cake until the guest of honor is here! Perhaps they need rescuing?");
-            }else if(selectedOption.equals(OPTION_PIZZA)){
+            } else if (selectedOption.equals(OPTION_PIZZA)) {
                 onEatPizza(player);
-            }else if(selectedOption.equals(OPTION_LEAVE)){
+            } else if (selectedOption.equals(OPTION_LEAVE)) {
                 System.out.println("You exit the room");
                 break;
             }
@@ -42,25 +42,22 @@ public class PurpleRoom {
 
 
     //Here is the code where onEatCake is redone so that it's called "pizza" instead:
-    private void onEatPizza(Player player)   {
+    private void onEatPizza(Player player) {
         System.out.println("Yum, delicious pizza! You eat a slice and it restores your health.");
-        player.setHealth( player.getHealth() + 20);
+        player.setHealth(player.getHealth() + 20);
     }
 
 
     //Below is the revised onEatCake code, redone so it doesn't affect health, just prints a congrats message
-    private void onEatBirthdayCake(Player player) {
-<<<<<<< HEAD
-        //if (GreenRoom.(onFightRobot)){
-=======
-        if (Robot.killedRobot()){
->>>>>>> c6a5c7cee91dd0ec10c54025dfdc420e8549b66f
+   /* private void onEatBirthdayCake(Player player) {
+                //if (GreenRoom.(onFightRobot)){
+        if (Robot.killedRobot()) {
             System.out.println("Sweet victory! You defeated the robot! Well done, hero. Now you have the Yellow Key.");
             player.addItem(GameConstants.YELLOW_KEY);
         }
-    }
+    }*/
 
 
-
+}
 
 

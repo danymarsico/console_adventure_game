@@ -43,6 +43,8 @@ public class Game {
                 blueRoom.onEnterRoom(player);
             } else if (selectedOption.equals(OPTION_GREEN)) {
                 greenRoom.onEnterRoom(player, robot);
+            } else if (selectedOption.equals(OPTION_YELLOW)) {
+                yellowRoom.onEnterRoom(player);
             } else {
                 System.out.println("Goodbye!");
                 break;
