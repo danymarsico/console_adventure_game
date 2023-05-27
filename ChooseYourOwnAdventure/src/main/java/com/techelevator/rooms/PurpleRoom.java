@@ -50,7 +50,7 @@ public class PurpleRoom {
 
     //Below is the revised onEatCake code, redone so it doesn't affect health, just prints a congrats message
     private void onEatBirthdayCake(Player player) {
-        if (GreenRoom.(onFightRobot)){
+        if (Robot.killedRobot()){
             System.out.println("Sweet victory! You defeated the robot! Well done, hero. Now you have the Yellow Key.");
             player.addItem(GameConstants.YELLOW_KEY);
         }
