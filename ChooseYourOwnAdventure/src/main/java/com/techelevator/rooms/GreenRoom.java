@@ -78,7 +78,7 @@ public class GreenRoom {
                 System.out.println("        {___________||___________}  ");
 
 
-                System.out.println("Congrats! You have finally defeated the ChatBot.Looks like he left you a precious item!");
+                System.out.println("Congrats! You have finally defeated the ChatBot. Looks like he left you a precious item!");
                 System.out.println("");
                 robot.onRobotKilled(robot, player);
 
@@ -146,7 +146,7 @@ public class GreenRoom {
 // if robot loses
 // Display robot art with x's for eyes
 // Display "The robot has been defeated! The guest of honor has been freed!" or something similar
-// Add birthday candles to player inventory
+// Add yellow key to player inventory
 
 // We will also need to set up another while loop for the Purple Room - one where if you go into the purple room
 // and isRobotDead is false, it runs as it was originally written

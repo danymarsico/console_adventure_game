@@ -1,12 +1,16 @@
 package com.techelevator.rooms;
 
+import com.techelevator.Game;
 import com.techelevator.constants.GameConstants;
 import com.techelevator.menu.MenuDisplay;
 import com.techelevator.Player;
 
 public class PurpleRoom {
 
+    //if player goes into YellowRoom before going into PurpleRoom (see boolean hasBeenThruYellow in Yellow Room) , then the intro should be
+    // "You enter a purple room, and all your friends are there with a big birthday cake. Now that the guest of honor is here, it's time to celebrate!"
     private static final String INTRO = "You enter a purple room, and all your friends are there with a big birthday cake. But someone's missing... the guest of honor! Where could they be?";
+    private static final String INTROAFTERYELLOW = "All your friends are there with a big birthday cake. Now that the guest of honor is here, it's time to celebrate!";
 
     private static final String OPTION_CAKE = "Eat the cake";
     private static final String OPTION_PIZZA = "Eat a slice of pizza";
@@ -17,7 +21,11 @@ public class PurpleRoom {
 
         while (true) {
 
-            System.out.println(INTRO);
+            if(!player.hasItem(GameConstants.YELLOW_KEY)){
+                System.out.println(INTRO);
+            } else if(player.hasItem((GameConstants.YELLOW_KEY))) {
+                System.out.println(INTROAFTERYELLOW);
+            }
 
             String selectedOption = MenuDisplay.prompt(OPTIONS);
             if (selectedOption.equals(OPTION_CAKE) && !player.hasItem(GameConstants.YELLOW_KEY)) {
