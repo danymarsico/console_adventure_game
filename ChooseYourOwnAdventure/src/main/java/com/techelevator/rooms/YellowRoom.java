@@ -13,6 +13,8 @@ public class YellowRoom {
 
     public void onEnterRoom(Player player){
         while (true) {
+            boolean hasBeenThruYellow;
+
             if(player.hasItem(GameConstants.YELLOW_KEY)){
                 YellowRoom.onOpenDoor(player);
                 String selectedOption = MenuDisplay.prompt(OPTIONS);
@@ -21,6 +23,7 @@ public class YellowRoom {
                     MenuDisplay.prompt(OPTIONS);
                 } else if (selectedOption.equals(OPTION_LEAVE)) {
                     System.out.println("You exit the room");
+                    hasBeenThruYellow = true;
                     break;
                 }
                 break;
@@ -39,7 +42,7 @@ public class YellowRoom {
             System.out.println(INTRO_YELLOW);
             System.out.println("");
             System.out.println("");
-            System.out.println("Hurraaay! You've saved the guest of honor: the Birthday person! You can go back to celebrate in the Blue room");
+            System.out.println("Hurraaay! You've saved the guest of honor: the Birthday person! You can go celebrate in the Blue room");
         }
     }
 }
